@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add event listner</title>
+    <style>
+        #quadrato {
+            height: 100px;
+            width: 100px;
+            background-color: brown;
+            position: absolute;
+            left: 0px;
+            top:100px;
+        }
+        #quadrato p {
+            color:white;
+        }
+
+        #rettangolo {
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 250px;
+            color:white;
+            background-color: indigo;
+        }
+    </style>
+</head>
+<body>
+    <div id="quadrato">
+        
+
+    </div>
+    <div id="rettangolo">
+      
+    </div>
+    <button id="avantiBtn">avanti</button>
+    <script>
+        const quadrato = document.querySelector('#quadrato');
+        const rettangolo = document.querySelector('#rettangolo')
+        const avantiBtn = document.querySelector('#avantiBtn');
+        //console.log("trovato i protagonisti",quadrato,avantiBtn);
+        
+        function vaiAvanti(event){
+           console.log("altKey is ",event.altKey);
+           console.log("type ",event.type);
+           console.log("target ",event.target)
+           quadrato.style.left = "100px"
+        }
+
+        avantiBtn.addEventListener('click',vaiAvanti) 
+        
+    </script>
+
+    <script>
+        const cambiaColore = (evt) => {
+            console.log("target",evt.target.id,evt.clientX,evt.clientY)
+            evt.target.style.backgroundColor = "yellow";
+        }
+        quadrato.addEventListener('mousemove',cambiaColore)
+        rettangolo.addEventListener('mousemove',cambiaColore)
+    </script>
+</body>
+</html>
